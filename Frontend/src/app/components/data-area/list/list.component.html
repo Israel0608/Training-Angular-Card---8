@@ -1,0 +1,15 @@
+<div>
+
+    <select (change)="showMovies($event)">
+        <option selected disabled>Select Target theater</option>
+        <option *ngFor="let t of theaters" [value]="t.theaerId">{{t.theaerName}}</option>
+    </select>
+
+    <div class="GameCard" *ngFor="let m of movies">
+
+        <span>Name: {{ m.movieName}}</span>
+        <span>Start Movie: {{ m.startMovie | date: 'short'}}</span>
+        <span>Movie Time : {{ m.time}}</span>
+
+        <button (click)="deleteMovie(m.movieId)">❌</button>
+    </div>
